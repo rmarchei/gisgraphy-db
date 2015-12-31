@@ -21,3 +21,4 @@ before_install:
 
 script:
   - psql -U postgres -h localhost -p 5432 -wqtl | cut -d \| -f 1 | grep -w gisgraphy
+  - psql -U postgres -h localhost -p 5432 -wqt -d gisgraphy -c 'select PostGIS_full_version();' | grep -e 'POSTGIS="2.1.'
